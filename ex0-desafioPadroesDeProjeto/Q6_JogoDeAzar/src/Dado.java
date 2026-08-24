@@ -1,7 +1,10 @@
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-public class Dado {
-    private int lados;
+public class Dado implements IDado {
+    private final int lados;
     private int valorJogada;
     private final Random random;
 
@@ -16,5 +19,10 @@ public class Dado {
 
     public int getValor() {
         return valorJogada;
+    }
+
+    @Override
+    private List<Integer> getHistorico() {
+        return new ArrayList<>();
     }
 }
