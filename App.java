@@ -1,20 +1,12 @@
 public class App {
-    public static void main(String[] args) {
-        enviarNotificacao("EMAIL", "aluno@exemplo.com", "Aula de padrões às 19h30");
-        enviarNotificacao("SMS", "51999999999", "Aula de padrões às 19h30");
-    }
+    public static void main(String[] args) throws Exception {
+        String email = "bernardo.copstein@pucrs.br";
+        var validador = new Validador();
 
-    private static void enviarNotificacao(String tipo, String destinatario, String mensagem) {
-        Notificacao notificacao;
-
-        if (tipo.equals("EMAIL")) {
-            notificacao = new NotificacaoEmail();
-        } else if (tipo.equals("SMS")) {
-            notificacao = new NotificacaoSMS();
-        } else {
-            throw new IllegalArgumentException("Tipo de notificação desconhecido: " + tipo);
+        if (validador.valida(Validador.Tipo.EMAIL, email)){
+            System.out.println(email+" é um email válido!");
+        }else{
+            System.out.println(email+" não é um email válido!");
         }
-
-        notificacao.enviar(destinatario, mensagem);
     }
 }
